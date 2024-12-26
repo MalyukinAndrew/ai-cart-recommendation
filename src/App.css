@@ -1,0 +1,21 @@
+@import "../node_modules/nes.css/css/nes.css";
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.input {
+  margin-bottom: 24px;
+}
+
+.btn {
+  margin-bottom: 32px;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
