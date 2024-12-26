@@ -47,7 +47,8 @@ function App() {
     return await res.json()
   }
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault()
     setIsLoading(true)
     aiRequest(value).then((response) => {
       setResults(response.choices[0].message.content)
@@ -59,8 +60,10 @@ return (
   <div className="container nes-container with-title">
     <h1 className="title">AI helper</h1>
 
-    <input onChange={handleChange} className="input nes-input" placeholder="Type in what you are looking for"/>
-    <button disabled={isLoading} onClick={onSubmit} className="btn nes-btn is-primary">Find</button>
+    <form onSubmit={onSubmit}>
+      <input onChange={handleChange} className="input nes-input" placeholder="Type in what you are looking for"/>
+      <button type="submit" disabled={isLoading} className="btn nes-btn is-primary">Find</button>
+    </form>
 
     {!!results.length && <div>
       <h2>You are probably looking for this:</h2>
